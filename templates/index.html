@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Autómatas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="wrap">
+    <div class="card">
+        <h1>Simulación de Autómatas</h1>
+        <div id="catalogoResumen" class="summary"></div>
+        <div class="controls">
+            <select id="automata"></select>
+            <input type="text" id="input" placeholder="Ejemplo: A,C,L">
+            <button onclick="simular()">Ejecutar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Cadenas aceptadas (ejemplos)</h2>
+        <div id="ejemplos" class="chips"></div>
+    </div>
+
+    <div class="card">
+        <h2>Definición del autómata</h2>
+        <div id="meta" class="meta"></div>
+        <h3>Tabla de transiciones</h3>
+        <div id="tabla"></div>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h2>Simulación paso a paso</h2>
+            <div id="timeline" class="timeline">Sin simulación</div>
+            <p id="resultado"></p>
+            <h3>Historial de simulaciones</h3>
+            <div id="historial" class="history-list"></div>
+        </div>
+
+        <div class="card">
+            <h2>Diagrama de estados</h2>
+            <div class="diagram-toolbar">
+                <button type="button" onclick="setZoom('out')">-</button>
+                <button type="button" onclick="setZoom('in')">+</button>
+                <button type="button" onclick="setZoom('reset')">Reset</button>
+                <span id="zoomLabel" class="zoom-badge">Zoom: 100%</span>
+            </div>
+            <svg id="diagrama" viewBox="0 0 1200 520"></svg>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
